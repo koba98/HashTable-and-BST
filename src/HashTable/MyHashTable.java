@@ -30,6 +30,12 @@ public class MyHashTable<K, V> implements Iterable<MyHashTable.HashNode<K, V>> {
     }
 
     private HashNode<K, V>[] chainArray;
+    public HashNode<K, V> getBucketHead(int index) {
+        if (index < 0 || index >= M) {
+            throw new IndexOutOfBoundsException("Invalid bucket index");
+        }
+        return chainArray[index];
+    }
     private int M = 11;
     private int size;
 
